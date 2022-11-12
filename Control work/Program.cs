@@ -1,5 +1,22 @@
-﻿Console.Write("Введите количество строк, которые хотите ввести: ");
-    int n = Convert.ToInt32(Console.ReadLine()); 
+﻿int GetNumber(string message)
+{
+int result = 0;
+bool correctInput = false;
+while(!correctInput)
+  {         
+    Console.WriteLine(message);         
+      correctInput = int.TryParse(Console.ReadLine(), out result); 
+
+    if(result < 1)             
+      correctInput = false;  
+
+    if(!correctInput)             
+        Console.WriteLine("Вы ввели некорректное число");          
+        Console.WriteLine();     
+  }      
+    return result; 
+}
+int n = GetNumber("Введите количество строк, которые хотите ввести: "); 
     string[] array = new string[n]; 
     for (int i = 0; i < n; i++)
     {
@@ -15,7 +32,7 @@
     Console.ReadLine();
 
 string[] newArray = new string[array.Length];
-void GetSecondArray(string[] array, string[] newArray)
+void GetNewArray(string[] array, string[] newArray)
 {
     int count = 0;
     for (int i = 0; i < array.Length; i++)
@@ -38,3 +55,7 @@ void PrintArray(string[] array)
     }
     Console.WriteLine(); 
 }
+
+Console.Write("Строки с тремя и меньше символами: ");
+GetNewArray(array, newArray);
+PrintArray(newArray);

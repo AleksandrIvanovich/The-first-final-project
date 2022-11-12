@@ -13,3 +13,28 @@
     }
     Console.Write("Нажмите [Enter] для выхода...");
     Console.ReadLine();
+
+string[] newArray = new string[array.Length];
+void GetSecondArray(string[] array, string[] newArray)
+{
+    int count = 0;
+    for (int i = 0; i < array.Length; i++)
+    {
+    if(array[i].Length <= 3)
+        {
+        newArray[count] = array[i];
+        count++;
+        }
+    }
+    if (count == 0)
+    Console.Write("таких строк нет!"); 
+}
+
+void PrintArray(string[] array)
+{
+    for (int i = 0; i < array.Length; i++)
+    {
+        Console.Write($"{array[i]} ");
+    }
+    Console.WriteLine(); 
+}

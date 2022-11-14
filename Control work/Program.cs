@@ -11,17 +11,17 @@ while(!correctInput)
       correctInput = false;  
 
     if(!correctInput)             
-        Console.WriteLine("Вы ввели некорректное число");          
+        Console.WriteLine("Вы ввели некорректное число! Попробуйте снова.");          
         Console.WriteLine();     
   }      
     return result; 
 }
-int n = GetNumber("Введите количество строк, которые хотите ввести: "); 
+int n = GetNumber("Введите число, обозначающее количество строк, которые хотите ввести: "); 
     string[] array = new string[n]; 
     for (int i = 0; i < n; i++)
     {
-        Console.Write("Введите строку №{0}:\r\n    ", i + 1);
-        array[i] = Console.ReadLine();
+        Console.Write("Введите строку №{0}:\r\n  ", i + 1);
+        array[i] = (Console.ReadLine()?? " ");
     }
     Console.WriteLine("Вы ввели следующие строки:");
     for (int i = 0; i < n; i++)
@@ -34,24 +34,24 @@ int n = GetNumber("Введите количество строк, которы�
 string[] newArray = new string[array.Length];
 void GetNewArray(string[] array, string[] newArray)
 {
-    int count = 0;
+    int j = 0;
     for (int i = 0; i < array.Length; i++)
     {
     if(array[i].Length <= 3)
         {
-        newArray[count] = array[i];
-        count++;
+        newArray[j] = array[i];
+        j++;
         }
     }
-    if (count == 0)
+    if (j == 0)
     Console.Write("таких строк нет!"); 
 }
 
-void PrintArray(string[] array)
+void PrintArray(string[] newArray)
 {
-    for (int i = 0; i < array.Length; i++)
+    for (int i = 0; i < newArray.Length; i++)
     {
-        Console.Write($"{array[i]} ");
+        Console.Write($"{newArray[i]}  ");
     }
     Console.WriteLine(); 
 }

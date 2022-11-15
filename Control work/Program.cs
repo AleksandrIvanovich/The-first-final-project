@@ -31,7 +31,20 @@ int n = GetNumber("Введите число, обозначающее скол�
     Console.Write("Нажмите [Enter] для выхода...");
     Console.ReadLine();
 
-string[] newArray = new string[array.Length];
+int GetLengthSecondArray(string[] array)
+{
+    int count = 0;
+    for (int i = 0; i < array.Length; i++)
+    {
+      if(array[i].Length <= 3)
+      {  
+        count++;
+      }
+    }
+  return count;
+}
+int size = GetLengthSecondArray(array);    
+string[] newArray = new string[size];
 void GetNewArray(string[] array, string[] newArray)
 {
     int j = 0;

@@ -16,7 +16,7 @@ while(!correctInput)
   }      
     return result; 
 }
-int n = GetNumber("Введите число, обозначающее количество строк, которые хотите ввести: "); 
+int n = GetNumber("Введите число, обозначающее сколько строк вы хотите ввести: "); 
     string[] array = new string[n]; 
     for (int i = 0; i < n; i++)
     {
